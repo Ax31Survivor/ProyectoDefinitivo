@@ -104,15 +104,13 @@ public class Escuela {
             }
         }
     }
-    public int i = 0;
+    
 
-    public void cargaProfesor(String aux) {
-
-        profesor[i] = aux;
-        i++;
+    public void cargaProfesor(String... aux) {
+        profesor = aux;  
     }
 
-    public void cargaInstitucion(int p, String aux) {   
+    public void cargaInstitucion(int p, String... aux) {   
             institucion[p][0]= aux;
             
     }
@@ -150,7 +148,13 @@ public class Escuela {
     }
 
     public boolean validaProfesor(int p) {
-        if (profesor != null) {
+        String s=null;
+        for(int i =0;i<p;i++){
+            if (profesor[i] != null) {
+            s=profesor[i];
+                }
+        }
+        if(s!=null){
             return true;
         }
         System.out.println("No se encuentran datos");
@@ -161,10 +165,7 @@ public class Escuela {
         if (!validaProfesor(p)) {
             return false;
         }
-        if (institucion.length != 0) {
-            return true;
-        }
-        return false;
+        return true;
     }
 
     public boolean validaMateria(int p, int inst, int mat) {
@@ -200,6 +201,7 @@ public class Escuela {
     public void ActualizaDatos(){
         for(int i=0;i<profesor.length;i++){
             profesor[i]=institucion[i][i];
+            
         }
     }
     public void moverAlumno() {
@@ -220,24 +222,22 @@ public class Escuela {
         int j=0;
         int k=0;
         int l=0;
-
-        if(profesor.length ==0) {
+        int p=0;
+        
+        if(profesor ==null) {
           s += "no hay profesores \n";
           return s;
         }else{
             for ( i = 0; i < profesor.length; i++) {
-                s += "profesor " + profesor[i] + "\n";}
-        }
-        
-        if(institucion.length==0){
-           s += "\tno hay institucion \n"; 
-           return s;
-        }else{
-          for (j=0; j < institucion.length; j++) {
-                        s += "\tinstitucion " + institucion[j][0] + "\n";}  
+                s += "profesor " + profesor[i] + "\n";
+            }
         }
         
         
+        
+        
+        
+
         return s;
     }
     
