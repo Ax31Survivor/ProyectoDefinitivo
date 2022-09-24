@@ -216,7 +216,7 @@ public class Escuela {
         int k=0;
         int l=0;
 
-        if(profesor.length !=0) {
+        if(profesor.length ==0) {
           s += "no hay profesores \n";
           return s;
         }else{
@@ -224,7 +224,7 @@ public class Escuela {
                 s += "profesor " + profesor[i] + "\n";}
         }
         
-        if(institucion.length!=0){
+        if(institucion.length==0){
            s += "\tno hay institucion \n"; 
            return s;
         }else{
@@ -232,14 +232,14 @@ public class Escuela {
                         s += "\tinstitucion " + institucion[i][j] + "\n";}  
         }
         
-        if(materias.length !=0){
+        if(materias.length ==0){
             s += "\t\tno hay materia \n";
             return s;
         }else{
             for ( k = 0; k < materias.length; k++) {
                                 s += "\t\tmateria " + materias[i][j][k] + "\n";
         }
-        if(alumnos.length != 0){
+        if(alumnos.length == 0){
              s += "\t\t\tno hay alumno \n";
              return s;
         }else{
