@@ -113,7 +113,8 @@ public class Escuela {
     }
 
     public void cargaInstitucion(int p, String aux) {   
-            institucion[p][p]= aux;  
+            institucion[p][0]= aux;
+            
     }
 
     public void cargaMateria(int p, int inst, String... aux) {
