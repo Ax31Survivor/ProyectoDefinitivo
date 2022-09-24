@@ -10,10 +10,10 @@
  */
 public class Escuela {
 
-    String profesor[];
-    String institucion[][];
-    String materias[][][];
-    String alumnos[][][][];
+    static String  profesor[];
+   static String institucion[][];
+    static String materias[][][];
+    static String alumnos[][][][];
 
     public Escuela() {
         profesor = null;
@@ -73,11 +73,12 @@ public class Escuela {
     }
 
     public void defineInstitucion(int p, int inst) {
+        
         if (inst == 0) {
             System.out.println("Error...No se pueden definir los datos");
         } else {
             if (validaProfesor(p)) {
-                institucion = new String[p][inst];
+                institucion = new String [p][inst];
                 materias = new String[inst][][];
                 alumnos = new String[inst][][][];
             }
@@ -107,13 +108,19 @@ public class Escuela {
     
 
     public void cargaProfesor(String... aux) {
-        profesor = aux;  
+        for (int i = 0; i < aux.length; i++) {
+            profesor[i] = aux[i];   
+        }
+          
     }
 
-    public void cargaInstitucion( String... aux) {  
-        
-            institucion[p][0]= aux;
-            
+    public void cargaInstitucion(String... aux) {
+        for(int i=0;i<aux.length;i++){
+            institucion[0][i]= aux[i]; 
+        }   
+        for (int i = 0; i < profesor.length; i++) {
+            institucion[1][i]=profesor[i];   
+        }
     }
 
     public void cargaMateria(int p, int inst, String... aux) {
@@ -231,6 +238,14 @@ public class Escuela {
         }else{
             for ( i = 0; i < profesor.length; i++) {
                 s += "profesor " + profesor[i] + "\n";
+            }
+        }
+        if(institucion ==null) {
+          s += "no hay profesores \n";
+          return s;
+        }else{
+            for ( j = 0; j < institucion.length; j++) {
+                s += "instituciones " + institucion[j][j] + "\n";
             }
         }
         
