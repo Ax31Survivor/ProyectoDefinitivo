@@ -18,7 +18,7 @@ public class Prb {
             Lectura l = new Lectura();
             int x = 0;
             int p = 0, inst = 0, mat = 0, a = 0;
-            String aux = "";
+            String aux[];
             String mnu[] = {".- Define profesores", ".- Define instituciones", ".- Define materias", ".- Define alumnos", ".- Carga profesores ", ".- Carga instituciones ", ".- Carga Materia", ".- Carga alumno", ".- Carga muestra", ".- Mueve alumno ", ".- Elimina alumno", ".- Elimina alumnos", ".- Salir..."};
             do {
                 x = obj.pintaMenu(mnu);
@@ -69,17 +69,17 @@ public class Prb {
                         
                         for (int i = 0; i < p; i++) {
                             System.out.println("Ingresa el nombre de los profesores");
-                            aux = sc.next();
-                            
+                             aux = new String[p];
+                            aux[i] = sc.next();
                             e.cargaProfesor(aux);
-                            aux = "";
                         }
                         break;
                     case 6:
                         for (int i = 0; i < inst; i++) {
                             System.out.println("Ingresa el nombre de las instituciones");
-                            aux = sc.next();
-                            e.cargaInstitucion(i, aux);
+                            aux = new String[inst];
+                            aux[i] = sc.next();
+                            e.cargaInstitucion(aux);
                         }
                         break;
                     case 7:
