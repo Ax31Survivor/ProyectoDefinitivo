@@ -72,7 +72,7 @@ public class Prb {
                             aux = sc.next();
                             
                             e.cargaProfesor(aux);
-                            aux = null;
+                            aux = "";
                         }
                         break;
                     case 6:
