@@ -211,36 +211,45 @@ public class Escuela {
 
     public String desp() {
         String s = " ";
+        int i=0;
+        int j=0;
+        int k=0;
+        int l=0;
 
-        if (profesor != null) {
-            for (int i = 0; i < profesor.length; i++) {
-                s += "profesor " + profesor[i] + "\n";
-                if (institucion[i][i] != null) {
-                    for (int j = 0; j < institucion.length; j++) {
-                        s += "\tinstitucion " + institucion[i][j] + "\n";
-                        if (materias[i][j] != null) {
-                            for (int k = 0; k < materias.length; k++) {
+        if(profesor.length !=0) {
+          s += "no hay profesores \n";
+          return s;
+        }else{
+            for ( i = 0; i < profesor.length; i++) {
+                s += "profesor " + profesor[i] + "\n";}
+        }
+        
+        if(institucion.length!=0){
+           s += "\tno hay institucion \n"; 
+           return s;
+        }else{
+          for (j=0; j < institucion.length; j++) {
+                        s += "\tinstitucion " + institucion[i][j] + "\n";}  
+        }
+        
+        if(materias.length !=0){
+            s += "\t\tno hay materia \n";
+            return s;
+        }else{
+            for ( k = 0; k < materias.length; k++) {
                                 s += "\t\tmateria " + materias[i][j][k] + "\n";
-                                if (alumnos[i][j][k] != null) {
-                                    for (int l = 0; l < alumnos[i][j][k].length; l++) {
+        }
+        if(alumnos.length != 0){
+             s += "\t\t\tno hay alumno \n";
+             return s;
+        }else{
+            for ( l = 0; l < alumnos[i][j][k].length; l++) {
                                         s += "\t\t\talumno " + alumnos[i][j][k][l] + "\n";
                                     }
-                                } else {
-                                    s += "\t\t\tno hay alumno \n";
-                                }
-                            }
-                        } else {
-                            s += "\t\tno hay materia \n";
-                        }
-                    }
-                } else {
-                    s += "\tno hay institucion \n";
-                }
-            }
-        } else {
-            s += "no hay profesores \n";
         }
+        
+        
         return s;
     }
-
+    }
 }
