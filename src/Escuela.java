@@ -196,7 +196,12 @@ public class Escuela {
         }
         return false;
     }
-
+    
+    public void ActualizaDatos(){
+        for(int i=0;i<profesor.length;i++){
+            profesor[i]=institucion[i][i];
+        }
+    }
     public void moverAlumno() {
 
     }
@@ -229,27 +234,11 @@ public class Escuela {
            return s;
         }else{
           for (j=0; j < institucion.length; j++) {
-                        s += "\tinstitucion " + institucion[i][j] + "\n";}  
-        }
-        
-        if(materias.length ==0){
-            s += "\t\tno hay materia \n";
-            return s;
-        }else{
-            for ( k = 0; k < materias.length; k++) {
-                                s += "\t\tmateria " + materias[i][j][k] + "\n";
-        }
-        if(alumnos.length == 0){
-             s += "\t\t\tno hay alumno \n";
-             return s;
-        }else{
-            for ( l = 0; l < alumnos[i][j][k].length; l++) {
-                                        s += "\t\t\talumno " + alumnos[i][j][k][l] + "\n";
-                                    }
+                        s += "\tinstitucion " + institucion[j][0] + "\n";}  
         }
         
         
         return s;
     }
-    }
+    
 }
