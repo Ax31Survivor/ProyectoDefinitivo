@@ -61,10 +61,13 @@ public class Escuela {
         this.alumnos = alumnos;
     }
 
-    public void defineProfesor(int p) {
-        if (p <= 0) {
+    public void defineProfesor(int p)
+    {
+        if (p <= 0)
+        {
             System.out.println("Error...No se pueden definir los datos");
-        } else {
+        } else
+        {
             profesor = new String[p];
             institucion = new String[p][];
             materias = new String[p][][];
@@ -72,148 +75,152 @@ public class Escuela {
         }
     }
 
-    public void defineInstitucion(int p, int inst) {
-        
-        if (inst == 0) {
+    public void defineInstitucion(int p, int inst)
+    {
+
+        if (inst == 0)
+        {
             System.out.println("Error...No se pueden definir los datos");
-        } else {
-            if (validaProfesor(p)) {
-                institucion = new String [p][inst];
+        } else
+        {
+            if (validaProfesor(p))
+            {
+                institucion = new String[p][inst];
                 materias = new String[inst][][];
                 alumnos = new String[inst][][][];
             }
         }
     }
 
-    public void defineMateria(int p, int inst, int mat) {
-        if (mat <= 0) {
+    public void defineMateria(int p, int inst, int mat)
+    {
+        if (mat <= 0)
+        {
             System.out.println("Error...No se pueden definir los datos");
-        } else {
-            if (validaInstitucion(p, inst)) {
-                materias[p][inst] = new String[mat];
-                alumnos[p][inst] = new String[mat][];
+        } else
+        {
+            if (validaInstitucion(p, inst))
+            {
+                materias = new String[p][inst][mat];
+                alumnos = new String[p][inst][mat][];
             }
         }
     }
 
-    public void defineAlumno(int p, int inst, int mat, int a) {
-        if (a <= 0) {
+    public void defineAlumno(int p, int inst, int mat, int a)
+    {
+        if (a <= 0)
+        {
             System.out.println("Error...No se pueden definir los datos");
-        } else {
-            if (validaMateria(p, inst, mat)) {
-                alumnos[p][inst][mat] = new String[a];
-            }
-        }
-    }
-    
-
-    public void cargaProfesor(String... aux) {
-        for (int i = 0; i < aux.length; i++) {
-            profesor[i] = aux[i];   
-        }
-          
-    }
-
-    public void cargaInstitucion(String... aux) {
-        for(int i=0;i<aux.length;i++){
-            institucion[0][i]= aux[i]; 
-        }   
-        for (int i = 0; i < profesor.length; i++) {
-            institucion[1][i]=profesor[i];   
-        }
-    }
-
-    public void cargaMateria(int p, int inst, String... aux) {
-        if (validaInstitucion(p, inst)) {
-            if (materias[p][inst] == null) {
-                materias[p][inst] = aux;
-            } else {
-                for (int i = 0, j = 0; i < materias[p][inst].length; i++, j++) {
-                    if (j >= aux.length) {
-                        materias[p][inst][i] = null;
-                    } else {
-                        materias[p][inst][i] = aux[j];
-                    }
-                }
+        } else
+        {
+            if (validaMateria(p, inst, mat))
+            {
+                alumnos = new String[p][inst][mat][a];
             }
         }
     }
 
-    public void cargaAlumno(int p, int inst, int mat, String... aux) {
-        if (validaMateria(p, inst, mat)) {
-            if (alumnos[p][inst][mat] == null) {
-                alumnos[p][inst][mat] = aux;
-            } else {
-                for (int i = 0, j = 0; i < alumnos[p][inst][mat].length; i++, j++) {
-                    if (j >= aux.length) {
-                        alumnos[p][inst][mat][i] = null;
-                    } else {
-                        alumnos[p][inst][mat][i] = aux[j];
-                    }
-                }
-            }
+    public void cargaProfesor(String... aux)
+    {
+        for (int i = 0; i < aux.length; i++)
+        {
+            profesor[i] = aux[i];
+        }
+
+    }
+
+    public void cargaInstitucion(String... aux)
+    {
+        for (int i = 0; i < aux.length; i++)
+        {
+            institucion[0][i] = aux[i];
+        }
+        for (int i = 0; i < profesor.length; i++)
+        {
+            institucion[1][i] = profesor[i];
         }
     }
 
-    public boolean validaProfesor(int p) {
-        String s=null;
-        for(int i =0;i<p;i++){
-            if (profesor[i] != null) {
-            s=profesor[i];
-                }
+    public void cargaMateria(String... aux)
+    {
+        for (int i = 0; i < aux.length; i++)
+        {
+            materias[0][0][i] = aux[i];
         }
-        if(s!=null){
+        for (int i = 0; i < institucion.length; i++)
+        {
+            materias[0][1][i] = institucion[0][i];
+        }
+        for (int i = 0; i < profesor.length; i++)
+        {
+            materias[1][1][i] = profesor[i];
+        }
+    }
+
+    public void cargaAlumno(String... aux)
+    {
+        for (int i = 0; i < aux.length; i++)
+        {
+            alumnos[0][0][0][i] = aux[i];
+        }
+        for (int i = 0; i < materias.length; i++)
+        {
+            alumnos[0][0][1][i] = materias[0][0][i];
+        }
+        for (int i = 0; i < institucion.length; i++)
+        {
+            alumnos[0][1][1][i] = institucion[0][i];
+        }
+        for (int i = 0; i < profesor.length; i++)
+        {
+            alumnos[1][1][1][i] = profesor[i];
+        }
+    }
+
+    public boolean validaProfesor(int p)
+    {
+        String s = null;
+        for (int i = 0; i < p; i++)
+        {
+            if (profesor[i] != null)
+            {
+                s = profesor[i];
+            }
+        }
+        if (s != null)
+        {
             return true;
         }
         System.out.println("No se encuentran datos");
         return false;
     }
 
-    public boolean validaInstitucion(int p, int inst) {
-        if (!validaProfesor(p)) {
+    public boolean validaInstitucion(int p, int inst)
+    {
+        if (!validaProfesor(p))
+        {
             return false;
         }
         return true;
     }
 
-    public boolean validaMateria(int p, int inst, int mat) {
-        if (validaInstitucion(p, inst)) {
-            if (materias[p][inst] != null) {
-                if (mat < 0 || mat >= materias[p][inst].length) {
-                    System.out.println("Error...No hay datos guardados");
-                } else {
-                    return true;
-                }
-            } else {
-                System.out.println("No hay datos guardados");
-            }
+    public boolean validaMateria(int p, int inst, int mat)
+    {
+        if (!validaInstitucion(p, inst))
+        {
+            return false;
         }
-        return false;
+        return true;
     }
 
-    public boolean validaAlumno(int p, int inst, int mat, int a) {
-        if (validaMateria(p, inst, mat)) {
-            if (alumnos[p][inst][mat] != null) {
-                if (a < 0 || a >= alumnos[p][inst][mat].length) {
-                    System.out.println("Error...No hay datos guardados");
-                } else {
-                    return true;
-                }
-            } else {
-                System.out.println("No hay datos guardados");
-            }
+    public boolean validaAlumno(int p, int inst, int mat, int a)
+    {
+        if (validaMateria(p, inst, mat))
+        {
+            return false;
         }
-        return false;
-    }
-    
-    public void ActualizaDatos(){
-        for(int i=0;i<profesor.length;i++){
-            profesor[i]=institucion[i][i];
-            
-        }
-    }
-    public void moverAlumno() {
-
+        return true;
     }
 
     public void eliminarAlumno() {
