@@ -66,21 +66,22 @@ public class Prb {
                         }
                         break;
                     case 5:
-                        
+                        aux = new String[p];
                         for (int i = 0; i < p; i++) {
                             System.out.println("Ingresa el nombre de los profesores");
-                             aux = new String[p];
+                             
                             aux[i] = sc.next();
-                            e.cargaProfesor(aux);
+                            
                         }
+                        e.cargaProfesor(aux);
                         break;
                     case 6:
+                        aux = new String[inst];
                         for (int i = 0; i < inst; i++) {
                             System.out.println("Ingresa el nombre de las instituciones");
-                            aux = new String[inst];
-                            aux[i] = sc.next();
-                            e.cargaInstitucion(aux);
+                            aux[i] = sc.next();  
                         }
+                        e.cargaInstitucion(aux);
                         break;
                     case 7:
                         for (int i = 0; i < mat; i++) {
