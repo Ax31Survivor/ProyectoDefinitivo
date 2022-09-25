@@ -107,8 +107,16 @@ public class Prb {
                         System.out.println(e.desp());
                         break;
                     case 10:
+                        
                         break;
                     case 11:
+                        String Alumno;
+                         System.out.println("Ingresa el nombre del alumno a eleminar\n");
+                         Alumno= sc.next();
+                         if(e.eliminarAlumno(Alumno)){
+                             System.out.println("se ha eliminado a \n "+Alumno);
+                         }
+                         System.out.println("No se ha encontrado al alumno "+Alumno);
                         break;
                     case 12:
                         break;
