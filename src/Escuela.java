@@ -216,7 +216,7 @@ public class Escuela {
 
     public boolean validaAlumno(int p, int inst, int mat, int a)
     {
-        if (validaMateria(p, inst, mat))
+        if (!validaMateria(p, inst, mat))
         {
             return false;
         }
