@@ -231,37 +231,59 @@ public class Escuela {
 
     }
 
-    public String desp() {
+    public String desp()
+    {
         String s = " ";
-        int i=0;
-        int j=0;
-        int k=0;
-        int l=0;
-        int p=0;
-        
-        if(profesor ==null) {
-          s += "no hay profesores \n";
-          return s;
-        }else{
-            for ( i = 0; i < profesor.length; i++) {
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        int l = 0;
+        int p = 0;
+
+        if (profesor == null)
+        {
+            s += "no hay profesores \n";
+            return s;
+        } else
+        {
+            for (i = 0; i < profesor.length; i++)
+            {
                 s += "profesor " + profesor[i] + "\n";
             }
         }
-        if(institucion ==null) {
-          s += "no hay profesores \n";
-          return s;
-        }else{
-            for ( j = 0; j < institucion.length; j++) {
-                s += "instituciones " + institucion[j][j] + "\n";
+        if (institucion[0][0] == null)
+        {
+            s += "\tno hay instituciones \n";
+            return s;
+        } else
+        {
+            for (j = 0; j < institucion.length; j++)
+            {
+                s += "\tinstituciones " + institucion[j][j] + "\n";
             }
         }
-        
-        
-        
-        
-        
-
+        if (materias[0][0][0] == null)
+        {
+            s += "'t\tno hay materias \n";
+            return s;
+        } else
+        {
+            for (int m = 0; m < materias.length; m++)
+            {
+                s += "\t\tmaterias" + materias[m][m][m] + "\n";
+            }
+        }
+        if (alumnos[0][0][0][0] == null)
+        {
+            s += "\t\t\tno hay alumnos \n";
+            return s;
+        } else
+        {
+            for (int n = 0; n < alumnos.length; n++)
+            {
+                s += "\t\t\talumnos" + alumnos[n][n][n][n] + "\n";
+            }
+        } 
         return s;
     }
-    
 }

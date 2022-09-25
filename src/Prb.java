@@ -66,35 +66,36 @@ public class Prb {
                         }
                         break;
                     case 5:
-                        aux = new String[p];
+                        
                         for (int i = 0; i < p; i++) {
                             System.out.println("Ingresa el nombre de los profesores");
-                             
+                             aux = new String[p];
                             aux[i] = sc.next();
-                            
+                            e.cargaProfesor(aux);
                         }
-                        e.cargaProfesor(aux);
                         break;
                     case 6:
-                        aux = new String[inst];
                         for (int i = 0; i < inst; i++) {
                             System.out.println("Ingresa el nombre de las instituciones");
-                            aux[i] = sc.next();  
+                            aux = new String[inst];
+                            aux[i] = sc.next();
+                            e.cargaInstitucion(aux);
                         }
-                        e.cargaInstitucion(aux);
                         break;
                     case 7:
                         for (int i = 0; i < mat; i++) {
                             System.out.println("Ingresa el nombre de las materias");
-                            aux = sc.next();
-                            e.cargaMateria(p, inst, aux);
+                            aux = new String[mat];
+                            aux[i] = sc.next();
+                            e.cargaMateria(aux);
                         }
                         break;
                     case 8:
                         for (int i = 0; i < a; i++) {
                             System.out.println("Ingresa el nombre de los alumnos");
-                            aux = sc.next();
-                            e.cargaAlumno(p, inst, mat, aux);
+                            aux= new String[a];
+                            aux[i] = sc.next();
+                            e.cargaAlumno(aux);
                         }
                         break;
                     case 9:
