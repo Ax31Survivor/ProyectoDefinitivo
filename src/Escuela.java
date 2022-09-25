@@ -223,8 +223,15 @@ public class Escuela {
         return true;
     }
 
-    public void eliminarAlumno() {
-
+    public boolean eliminarAlumno( String s) {
+        
+        for (int i=0; i<=alumnos.length;i++){
+            if(alumnos[0][0][0][i] == s){
+               alumnos[0][0][0][i] =""; 
+               return true;
+            }
+        }
+        return false;
     }
 
     public void eliminarDatos() {
