@@ -8,56 +8,67 @@
  *
  * @author axelf
  */
-public class Escuela {
+public class Escuela
+{
 
-    static String  profesor[];
-   static String institucion[][];
+    static String profesor[];
+    static String institucion[][];
     static String materias[][][];
     static String alumnos[][][][];
 
-    public Escuela() {
+    public Escuela()
+    {
         profesor = null;
         institucion = null;
         materias = null;
         alumnos = null;
     }
 
-    public Escuela(String[] profesor, String[][] institucion, String[][][] materias, String[][][][] alumnos) {
+    public Escuela(String[] profesor, String[][] institucion, String[][][] materias, String[][][][] alumnos)
+    {
         this.profesor = profesor;
         this.institucion = institucion;
         this.materias = materias;
         this.alumnos = alumnos;
     }
 
-    public String[] getProfesor() {
+    public String[] getProfesor()
+    {
         return profesor;
     }
 
-    public void setProfesor(String[] profesor) {
+    public void setProfesor(String[] profesor)
+    {
         this.profesor = profesor;
     }
 
-    public String[][] getInstitucion() {
+    public String[][] getInstitucion()
+    {
         return institucion;
     }
 
-    public void setInstitucion(String[][] institucion) {
+    public void setInstitucion(String[][] institucion)
+    {
         this.institucion = institucion;
     }
 
-    public String[][][] getMaterias() {
+    public String[][][] getMaterias()
+    {
         return materias;
     }
 
-    public void setMaterias(String[][][] materias) {
+    public void setMaterias(String[][][] materias)
+    {
         this.materias = materias;
     }
 
-    public String[][][][] getAlumnos() {
+    public String[][][][] getAlumnos()
+    {
         return alumnos;
     }
 
-    public void setAlumnos(String[][][][] alumnos) {
+    public void setAlumnos(String[][][][] alumnos)
+    {
         this.alumnos = alumnos;
     }
 
@@ -223,18 +234,26 @@ public class Escuela {
         return true;
     }
 
-    public boolean eliminarAlumno( String s) {
-        
-        for (int i=0; i<=alumnos.length;i++){
-            if(alumnos[0][0][0][i] == s){
-               alumnos[0][0][0][i] =""; 
-               return true;
+public boolean eliminarAlumno(String s)
+    {
+
+        for (int i = 0; i <= alumnos.length; i++)
+        {
+            if (alumnos[0][0][0][i] == s)
+            {
+                alumnos[0][0][0][i] = "";
+                return true;
             }
         }
         return false;
     }
 
-    public void eliminarDatos() {
+    public void eliminarDatos()
+    {
+        for (int i = 0; i <= alumnos.length; i++)
+        {
+            alumnos[0][0][0][i] = "";
+        }
 
     }
 
@@ -290,7 +309,7 @@ public class Escuela {
             {
                 s += "\t\t\talumnos" + alumnos[n][n][n][n] + "\n";
             }
-        } 
+        }
         return s;
     }
 }
