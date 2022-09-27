@@ -11,10 +11,10 @@
 public class Escuela
 {
 
-    static String profesor[];
-    static String institucion[][];
-    static String materias[][][];
-    static String alumnos[][][][];
+    static String[] profesor;
+    static String[][] institucion;
+    static String[][][] materias;
+    static String[][][][] alumnos;  
 
     public Escuela()
     {
@@ -89,16 +89,16 @@ public class Escuela
     public void defineInstitucion(int p, int inst)
     {
 
-        if (inst == 0)
+        if (inst <= 0)
         {
             System.out.println("Error...No se pueden definir los datos");
         } else
         {
             if (validaProfesor(p))
             {
-                institucion = new String[p][inst];
-                materias = new String[inst][][];
-                alumnos = new String[inst][][][];
+                institucion[p] = new String[inst];
+                materias[p] = new String[inst][];
+                alumnos[p] = new String[inst][][];
             }
         }
     }
@@ -112,8 +112,8 @@ public class Escuela
         {
             if (validaInstitucion(p, inst))
             {
-                materias = new String[p][inst][mat];
-                alumnos = new String[p][inst][mat][];
+                materias[p][inst] = new String[mat];
+                alumnos[p][inst] = new String[mat][];
             }
         }
     }
@@ -127,7 +127,7 @@ public class Escuela
         {
             if (validaMateria(p, inst, mat))
             {
-                alumnos = new String[p][inst][mat][a];
+                alumnos[p][inst][mat] = new String[a];
             }
         }
     }
