@@ -134,59 +134,29 @@ public class Escuela
 
     public void cargaProfesor(String... aux)
     {
-        for (int i = 0; i < aux.length; i++)
-        {
-            profesor[i] = aux[i];
-        }
+        System.arraycopy(aux, 0, profesor, 0, aux.length);
 
     }
 
     public void cargaInstitucion(String... aux)
     {
-        for (int i = 0; i < aux.length; i++)
-        {
-            institucion[0][i] = aux[i];
-        }
-        for (int i = 0; i < profesor.length; i++)
-        {
-            institucion[1][i] = profesor[i];
-        }
+        System.arraycopy(aux, 0, institucion[0], 0, aux.length);
+        System.arraycopy(profesor, 0, institucion[1], 0, profesor.length);
     }
 
     public void cargaMateria(String... aux)
     {
-        for (int i = 0; i < aux.length; i++)
-        {
-            materias[0][0][i] = aux[i];
-        }
-        for (int i = 0; i < institucion.length; i++)
-        {
-            materias[0][1][i] = institucion[0][i];
-        }
-        for (int i = 0; i < profesor.length; i++)
-        {
-            materias[1][1][i] = profesor[i];
-        }
+        System.arraycopy(aux, 0, materias[0][0], 0, aux.length);
+        System.arraycopy(institucion[0], 0, materias[0][1], 0, institucion.length);
+        System.arraycopy(profesor, 0, materias[1][1], 0, profesor.length);
     }
 
     public void cargaAlumno(String... aux)
     {
-        for (int i = 0; i < aux.length; i++)
-        {
-            alumnos[0][0][0][i] = aux[i];
-        }
-        for (int i = 0; i < materias.length; i++)
-        {
-            alumnos[0][0][1][i] = materias[0][0][i];
-        }
-        for (int i = 0; i < institucion.length; i++)
-        {
-            alumnos[0][1][1][i] = institucion[0][i];
-        }
-        for (int i = 0; i < profesor.length; i++)
-        {
-            alumnos[1][1][1][i] = profesor[i];
-        }
+        System.arraycopy(aux, 0, alumnos[0][0][0], 0, aux.length);
+        System.arraycopy(materias[0][0], 0, alumnos[0][0][1], 0, materias.length);
+        System.arraycopy(institucion[0], 0, alumnos[0][1][1], 0, institucion.length);
+        System.arraycopy(profesor, 0, alumnos[1][1][1], 0, profesor.length);
     }
 
     public boolean validaProfesor(int p)
@@ -234,9 +204,8 @@ public class Escuela
         return true;
     }
 
-public boolean eliminarAlumno(String s)
+    public boolean eliminarAlumno(String s)
     {
-
         for (int i = 0; i <= alumnos.length; i++)
         {
             if (alumnos[0][0][0][i] == s)
@@ -252,64 +221,28 @@ public boolean eliminarAlumno(String s)
     {
         for (int i = 0; i <= alumnos.length; i++)
         {
-            alumnos[0][0][0][i] = "";
+            System.arraycopy(profesor[0], 0, profesor, i, i);
         }
 
     }
 
-    public String desp()
+    public void desp()
     {
-        String s = " ";
-        int i = 0;
-        int j = 0;
-        int k = 0;
-        int l = 0;
-        int p = 0;
-
-        if (profesor == null)
+       for (int i = 0; i < profesor.length; i++)
         {
-            s += "no hay profesores \n";
-            return s;
-        } else
-        {
-            for (i = 0; i < profesor.length; i++)
+            System.out.println("Profesor: "+profesor[i]);
+            for (int j = 0; j < institucion[i].length; j++)
             {
-                s += "profesor " + profesor[i] + "\n";
+                System.out.println("\tInstitucion: " + institucion[i][j]);
+                for (int k = 0; k < materias[i][j].length; k++)
+                {
+                    System.out.println("\t\tMateria: " + materias[i][j][k]);
+                    for (int l = 0; l < alumnos[i][j][k].length; l++)
+                    {
+                        System.out.println("\t\t\tAlumno: " + alumnos[i][j][k][l]);
+                    }
+                }
             }
         }
-        if (institucion[0][0] == null)
-        {
-            s += "\tno hay instituciones \n";
-            return s;
-        } else
-        {
-            for (j = 0; j < institucion.length; j++)
-            {
-                s += "\tinstituciones " + institucion[j][j] + "\n";
-            }
-        }
-        if (materias[0][0][0] == null)
-        {
-            s += "'t\tno hay materias \n";
-            return s;
-        } else
-        {
-            for (int m = 0; m < materias.length; m++)
-            {
-                s += "\t\tmaterias" + materias[m][m][m] + "\n";
-            }
-        }
-        if (alumnos[0][0][0][0] == null)
-        {
-            s += "\t\t\tno hay alumnos \n";
-            return s;
-        } else
-        {
-            for (int n = 0; n < alumnos.length; n++)
-            {
-                s += "\t\t\talumnos" + alumnos[n][n][n][n] + "\n";
-            }
-        }
-        return s;
     }
 }
