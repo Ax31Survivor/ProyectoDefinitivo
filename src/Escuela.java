@@ -161,7 +161,6 @@ public class Escuela
 
     public boolean validaProfesor(int p)
     {
-        String s = null;
             if (profesor != null)
             {
                 if (p < 0  || p >= profesor.length) {

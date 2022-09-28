@@ -46,40 +46,22 @@ public class Prb
                         cont++;
                         break;
                     case 2:
-                        if (e.validaInstitucion(p, inst))
-                        {
                             System.out.println("¿Cuantas instituciones deseas registrar?");
                             inst = sc.nextInt();
                             e.defineInstitucion(p, inst);
                             System.out.println("Se definieron de manera correcta los datos");
-                        } else
-                        {
-                            System.out.println("Error...Intenta de nuevo");
-                        }
                         break;
                     case 3:
-                        if (e.validaMateria(p, inst, mat))
-                        {
                             System.out.println("¿Cuantas materias quieres registrar?");
                             mat = sc.nextInt();
                             e.defineMateria(p, inst, mat);
                             System.out.println("Se definieron de manera correcta los datos");
-                        } else
-                        {
-                            System.out.println("Error...Intenta de nuevo");
-                        }
                         break;
                     case 4:
-                        if (e.validaAlumno(p, inst, mat, a))
-                        {
                             System.out.println("¿Cuantos alumnos quieres registrar?");
                             a = sc.nextInt();
                             e.defineAlumno(p, inst, mat, a);
                             System.out.println("Se definieron de manera correcta los datos");
-                        } else
-                        {
-                            System.out.println("Error...Intentalo de nuevo");
-                        }
                         break;
                     case 5:
                         aux = new String[p];
