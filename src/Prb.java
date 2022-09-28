@@ -31,6 +31,7 @@ public class Prb
                 x = obj.pintaMenu(mnu);
                 switch (x)
                 {
+                    //MENU DE OPCIONES
                     case 1:
                         int cont = 0;
                         if (cont <= 0)
