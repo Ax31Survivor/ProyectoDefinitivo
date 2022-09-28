@@ -162,46 +162,84 @@ public class Escuela
     public boolean validaProfesor(int p)
     {
         String s = null;
-        for (int i = 0; i < p; i++)
-        {
-            if (profesor[i] != null)
+            if (profesor != null)
             {
-                s = profesor[i];
+                if (p < 0  || p >= profesor.length) {
+                    System.out.println("Error...Fuera de rango");
+                }else
+                {
+                    return true;
+                }
+            }else 
+            {
+                System.out.println("No hay datos -VALIDA PROFESOR");
             }
-        }
-        if (s != null)
-        {
-            return true;
-        }
-        System.out.println("No se encuentran datos");
-        return false;
+                return false;
     }
 
     public boolean validaInstitucion(int p, int inst)
     {
-        if (!validaProfesor(p))
+        if (validaProfesor(p))
         {
-            return false;
+            if (institucion[p] != null) 
+            {
+                if (inst < 0 || inst >= institucion[p].length)
+                {
+                    System.out.println("Error...Fuera de rango");
+                }else
+                {
+                    return true;
+                }
+            }else 
+            {
+                System.out.println("No hay datos -VALIDA INSTITUCIÓN");
+            }
         }
-        return true;
+        return false;
     }
 
     public boolean validaMateria(int p, int inst, int mat)
     {
-        if (!validaInstitucion(p, inst))
+        if (validaInstitucion(p, inst))
         {
-            return false;
+            if (materias[p][inst] != null) 
+            {
+                if (mat < 0 || mat >= materias[p][inst].length)
+                {
+                    System.out.println("Error...Fuera de rango");
+                }else
+                {
+                    return true;
+                }
+            }else 
+            {
+                System.out.println("No hay datos -VALIDA MATERIAS");
+            }
         }
-        return true;
+        return false;
     }
 
     public boolean validaAlumno(int p, int inst, int mat, int a)
     {
-        if (!validaMateria(p, inst, mat))
         {
-            return false;
+        if (validaMateria(p, inst, mat))
+        {
+            if (alumnos[p][inst][mat] != null) 
+            {
+                if (a < 0 || a >= alumnos[p][inst][mat].length)
+                {
+                    System.out.println("Error...Fuera de rango");
+                }else
+                {
+                    return true;
+                }
+            }else 
+            {
+                System.out.println("No hay datos -VALIDA ALUMNOS");
+            }
         }
-        return true;
+        return false;
+    }
     }
 
     public boolean eliminarAlumno(String s)
